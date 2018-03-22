@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <title>This Day</title>
+  <h1>This Day</h1>
+  <ul class='list-group'>
+  {% for thing in things %}
+    <li class="list-group-item">
+    {{thing.date_id}}
+    {{thing.time_id}}
+    {{thing.the_thing}}
+    </li>
+  {% endfor %}
+  </ul>
+</body>
+</html>

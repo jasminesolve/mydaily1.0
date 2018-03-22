@@ -1,12 +1,14 @@
-from flask import Flask
+from flask import Flask,render_template
+from data import Day
 app = Flask(__name__)
 
+Things = Day()
 
 #login page
 @app.route('/')
 @app.route('/mydaily')
 def logIn():
-    return 'Login here.'
+    return render_template('Home.html')
 
 #show user's calender
 @app.route('/mydaily/calendar/')
@@ -14,38 +16,32 @@ def logIn():
 #create a new day
 @app.route('/mydaily/newday/')
 def newDay():
-    print('Create a new day.')
-    return
+    return 'Create a new day.'
 
 #enter specific day
-@app.route('/mydaily/<int:date_id>/')
+@app.route('/mydaily/1/')
 def theDay():
-    print('This is the day.')
-    return
+    return render_template('theDay.html',things=Things)
 
 #delete a day
 @app.route('/mydaily/<int:date_id>/delete/')
 def deleteDay():
-    print('Delete the day.')
-    return
+    return 'Delete the day.'
 
 #add a time
 @app.route('/mydaily/<int:date_id>/newtime/')
 def addTime():
-    print('Add a time here.')
-    return
+    return 'Add a time here.'
 
 #edit a time
 @app.route('/mydaily/<int:date_id>/<int:time_id>/edit/')
 def editTime():
-    print('Eddit time here.')
-    return
+    return 'Eddit time here.'
 
 #delete a time
 @app.route('/mydaily/<int:date_id>/<int:time_id>/delete/')
 def deleteTime():
-    print('Delete a time here.')
-    return
+    return 'Delete a time here.'
 
 
 if __name__ == '__main__':
