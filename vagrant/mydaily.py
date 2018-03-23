@@ -19,9 +19,9 @@ def newDay():
     return 'Create a new day.'
 
 #enter specific day
-@app.route('/mydaily/1/')
-def theDay():
-    return render_template('theDay.html',things=Things)
+@app.route('/mydaily/<int:date_id>/')
+def theDay(date_id):
+    return render_template('theDay.html',things=Things,Did=date_id)
 
 #delete a day
 @app.route('/mydaily/<int:date_id>/delete/')
